@@ -15,14 +15,14 @@ class action_plugin_oauthGithub extends \dokuwiki\plugin\oauth\Service
         $data = array();
 
         // basic user data
-        $result = json_decode($oauth->request('user'));
+        $result = json_decode($oauth->request('user'), true);
         $data['user'] = $result['login'];
         $data['name'] = $result['name'];
 
         // primary email address
-        $result = json_decode($oauth->request('user/emails'));
+        $result = json_decode($oauth->request('user/emails'), true);
         foreach ($result as $row) {
-            if ($row['primary']) {
+            if (!empty($row['primary'])) {
                 $data['mail'] = $row['email'];
                 break;
             }
