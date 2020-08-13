@@ -22,7 +22,7 @@ class action_plugin_oauthGithub extends \dokuwiki\plugin\oauth\Service
         // primary email address
         $result = json_decode($oauth->request('user/emails'), true);
         foreach ($result as $row) {
-            if (!empty($row['primary'])) {
+            if (!empty($row['primary']) && !empty($row['verified'])) {
                 $data['mail'] = $row['email'];
                 break;
             }
@@ -32,7 +32,7 @@ class action_plugin_oauthGithub extends \dokuwiki\plugin\oauth\Service
     }
 
     /** @inheritDoc */
-    public function getScope()
+    public function getScopes()
     {
         return [GitHub::SCOPE_USER_EMAIL];
     }
