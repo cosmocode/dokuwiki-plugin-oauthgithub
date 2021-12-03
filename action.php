@@ -5,7 +5,7 @@ use OAuth\OAuth2\Service\GitHub;
 /**
  * Service Implementation for oAuth Github authentication
  */
-class action_plugin_oauthGithub extends \dokuwiki\plugin\oauth\Service
+class action_plugin_oauthgithub extends \dokuwiki\plugin\oauth\Service
 {
 
     /** * @inheritDoc */
