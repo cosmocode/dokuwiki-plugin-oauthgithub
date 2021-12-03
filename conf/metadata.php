@@ -1,4 +1,4 @@
 <?php
 
 $meta['key'] = ['string'];
-$meta['secret'] = ['string'];
+$meta['secret'] = ['password'];
